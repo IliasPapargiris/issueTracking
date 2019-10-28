@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th:="http://www.thymeleaf.org/" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:spring="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Registration Form</title>
+</head>
+<body>
+<form  action="#" th:action="@{/issues/issueCreationHandler}" th:object="${issueDummie}" method="post">
+    <div>
+        <label>TITLE</label>
+        <input type="text" th:field="*{title}"/>
+    </div>
+    <div >
+        <label>DESCRIPTION</label>
+        <input type="text" th:field="*{description}"/>
+    </div>
+    <div>
+        <label>STATUS</label>
+        <select th:field="*{status}">
+            <option th:value="'NEW'" th:text="New"></option>
+            <option th:value="'IN_PROGRESS'" th:text="Unresolved"></option>
+            <option th:value="'RESOLVED'" th:text="Resolved"></option>
+        </select>
+    </div>
+    <button type="submit" id="submit">create Issue</button>
+</form>
+
+</body>
+</html>

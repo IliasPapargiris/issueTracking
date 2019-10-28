@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th:="http://www.thymeleaf.org/" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:spring="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit Issue</title>
+</head>
+<body>
+<form  action="#" th:action="@{/issues/edited}" th:object="${toBeEdited}" method="post">
+    <div>
+        <input type="hidden" th:field="*{id}"/>
+    </div>
+    <label> Creator </label>
+    <select th:field="*{creator.id}">
+        <option th:each="user : ${Users}"
+                th:value="${user.id}"
+                th:text="${user.name}">
+        </option>
+    </select>
+    <div>
+        <label>Title</label>
+        <input type="text" th:field="*{title}"/>
+    </div>
+    <div>
+        <label>Description</label>
+        <input type="text" th:field="*{description}"/>
+    </div>
+    <div>
+        <label>Creation Date</label>
+        <input type="date" th:field="*{creationDate}"/>
+    </div>
+    <div>
+        <label>Assignee</label>
+        <select th:field="*{assignedUser.id}">
+            <option th:each="assignee : ${Assignees}"
+                    th:value="${assignee.id}"
+                    th:text="${assignee.name}">
+            </option>
+        </select>
+    </div>
+    <div>
+        <label> Status </label>
+        <select th:field="*{status}">
+            <option th:value="'NEW'" th:text="New"></option>
+            <option th:value="'IN_PROGRESS'" th:text="Unresolved"></option>
+            <option th:value="'RESOLVED'" th:text="Resolved"></option>
+        </select>
+    </div>
+    <button type="submit" id="submit">edit</button>
+</form>
+
+</body>
+</html>

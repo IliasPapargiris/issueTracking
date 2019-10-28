@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th:="http://www.thymeleaf.org/" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
+    <title>All ISSUES</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+    </style>
+</head>
+<body>
+<h1>All issues</h1>
+<table boarder="5" cellpadding="20">
+    <tr>
+        <th> Issue</th>
+        <th> Title</th>
+        <th> Description</th>
+        <th>Creation Date</th>
+        <th> Edited Date</th>
+        <th> Creator</th>
+        <th> Last Editor</th>
+        <th> Status</th>
+        <th> Assigned to</th>
+        <th> Edit Issue </th>
+        <th> Delete Issue </th>
+    </tr>
+    <tr th:each="issue :${allIssues}">
+            <td th:text="${issue.id}"></td>
+            <td th:text="${issue.title}"></td>
+            <td th:text="${issue.description}"></td>
+            <td th:text="${issue.creationDate}"></td>
+            <td th:text="${issue.issueEditDate}== null ? 'Unedited' : issue.issueEditDate"></td>
+            <td th:text="${issue.creator == null ? '' : issue.creator.name}"></td>
+            <td th:text="${issue.lastEditor == null ? 'Unedited' : issue.lastEditor.name}"></td>
+            <td th:text="${issue.status}"></td>
+            <td th:text="${issue.assignedUser == null ? 'Unassigned'  : issue.assignedUser.name}"></td>
+            <td><a th:href="@{/issues/editIssue/{id}(id=${issue.id})}">Edit</a></td>
+            <td><a th:href="@{/issues/deleteIssue/{id}(id=${issue.id})}">Delete</a></td>
+    </tr>
+
+
+</table>
+</body>
+</html>

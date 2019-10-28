@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th:="http://www.thymeleaf.org/" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:spring="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Unavailable Username</title>
+</head>
+<body>
+<h1>Then username: <span th:text="${registered.name}"> </span> is already used </h1>
+
+<p>
+<h2>Please provide new user data</h2>
+    <a href="http://localhost:8080/user/goToRegistration">Go to registration page again</a>
+</p>
+
+
+</body>
+</html>
