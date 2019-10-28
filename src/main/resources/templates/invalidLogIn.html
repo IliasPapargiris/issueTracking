@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th:="http://www.thymeleaf.org/" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta charset="UTF-8">
-    <title>Invalid Log In</title>
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 24px 26px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+    </style>
 </head>
 <body>
- <h1>Invalid log  press the button bellow if you want to register</h1>
+<h1>Invalid username or password</h1>
+<ul>
+    <li><a class="active" href="http://localhost:8080/user/goToRegister">Register if not a user</a></li>
+    <li><a href="http://localhost:8080/user/goToLogin">Try to log in again</a></li>
+</ul>
 </body>
 </html>

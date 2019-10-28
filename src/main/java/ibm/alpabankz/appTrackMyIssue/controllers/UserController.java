@@ -1,5 +1,6 @@
 package ibm.alpabankz.appTrackMyIssue.controllers;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import ibm.alpabankz.appTrackMyIssue.dao.UserDao;
 import ibm.alpabankz.appTrackMyIssue.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class UserController {
         User user = new User();
         model.addAttribute("logInDummie", user);
         return "loginForm";
+    }
+    @GetMapping("/loggingOut")
+    public String emptyLogOutForm(HttpSession session) {
+        session.removeAttribute("logged");
+        return "redirect:/user/goToLogin";
     }
 
     @PostMapping("/loginHandler")
@@ -59,6 +65,7 @@ public class UserController {
             ModelAndView model = new ModelAndView("justRegistered", "registered", user);
             return model;
         }
+
     }
 
 }
